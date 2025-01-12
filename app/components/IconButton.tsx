@@ -1,17 +1,22 @@
-import { View, StyleSheet, Text, Pressable } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Pressable, StyleSheet, Text } from "react-native";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-type Props = {
-  icon: string;
+type props = {
+  icon: keyof typeof MaterialIcons.glyphMap;
   label: string;
   onPress: () => void;
 };
 
-export default function IconButton({ icon, label, onPress }: Props) {
+export default function IconButton({ icon, label, onPress }: props) {
   return (
-    <Pressable style={styles.iconButton} onPress={onPress}>
-      <MaterialIcons name={icon} size={24} color="white" />
-      <Text style={styles.iconLabel}>{label}</Text>
+    <Pressable onPress={onPress}>
+      <MaterialIcons
+        name={icon}
+        size={24}
+        color="black"
+        style={styles.iconButton}
+      />
+      <Text style={styles.iconbuttonlabel}>{label}</Text>
     </Pressable>
   );
 }
@@ -21,8 +26,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  iconLabel: {
-    color: "white",
+
+  iconbuttonlabel: {
+    color: "black",
     marginTop: 12,
   },
 });

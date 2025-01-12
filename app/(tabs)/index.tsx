@@ -7,6 +7,9 @@ import IconButton from "../components/IconButton";
 import CircleButton from "../components/CircleButton";
 import EmojiPicker from "../components/EmojiPicker";
 import { useState } from "react";
+import { type ImageSource } from "expo-image";
+
+import EmojiList from "../components/EmojiList";
 
 const Placeholderimg = require("@/assets/images/placeholder.jpg");
 
@@ -16,6 +19,10 @@ export default function Index() {
   );
   const [showappoptions, setshowappoptions] = useState<boolean>(false);
   const [ismodalvisible, setismodalvisible] = useState<boolean>(false);
+  const [pickedEmoji, setPickedEmoji] = useState<ImageSource | undefined>(
+    undefined
+  );
+
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
@@ -24,7 +31,6 @@ export default function Index() {
     });
 
     if (!result.canceled) {
-      // console.log(result);
       setSelectedImage(result.assets[0].uri);
       setshowappoptions(true);
     } else {

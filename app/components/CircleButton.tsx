@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     width: 84,
     height: 84,
     marginHorizontal: 60,
-    borderWidth: 40,
-    borderColor: "black",
+    borderWidth: 4,
+    borderColor: "#ffd33d",
     borderRadius: 50,
     padding: 3,
   },
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 42,
-    backgroundColor: "#25292e",
+    backgroundColor: "#fff",
   },
 });
